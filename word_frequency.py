@@ -10,6 +10,7 @@ def print_word_freq(file):
     print(f'Your file is: {file}')
     with open(file) as open_file:
         read_file = open_file.read()
+        filtered_words = [word for word in read_file if word not in STOP_WORDS]
         no_punct = read_file.replace(".", "").replace("!", "").replace(",", "").replace("-", " ").replace("?", "")
         lower_word = no_punct.lower() # lowercase all words
         word_list = lower_word.split() # make words one by one in lines
